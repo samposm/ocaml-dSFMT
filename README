@@ -147,6 +147,6 @@ an __attribute__ ((noinline)) to prevent inlining, making the comparison
 to ocaml a bit more "fair". C is still 2x faster than ocaml.
 
 The last one uses the ocaml standard libary random number generator 
-Ransom.float, instead is dSFMT.
+Random.float, instead is dSFMT.
 
 2011-12-26 Sampo Smolander, sampo.smolander@helsinki.fi
