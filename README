@@ -13,7 +13,7 @@ Then it compiles the library bindings.
 This will produce quite a few files (11 to be precise):
 
   dSFMT_c.o     object file from the dSFMT C code
-  dSFMT-wrap.o  object file from the C wrapper functions
+  dsfmt-wrap.o  object file from the C wrapper functions
   dlldsfmt.so   shared library object made of the two above
   libdsfmt.a    static library object made of the two above
   dsfmt.cmi     compiled interface definition for dsfmt.ml
@@ -83,11 +83,11 @@ Compile with
   $ ocamlopt libdsfmt.a dsfmt.cmx <mycode>.ml
 
 (3b) or linking directly with C objects
-Files needed: dsfmt.cmi dsfmt.o dsfmt.cmx dSFMT_c.o dSFMT-wrap.o 
+Files needed: dsfmt.cmi dsfmt.o dsfmt.cmx dSFMT_c.o dsfmt-wrap.o 
 
 Compile with
 
-  $ ocamlopt dSFMT-wrap.o dSFMT_c.o dsfmt.cmx <mycode>.ml
+  $ ocamlopt dsfmt-wrap.o dSFMT_c.o dsfmt.cmx <mycode>.ml
 
 (3c) statically linkind with library objects
 Files needed: dsfmt.cmi dsfmt.cmx dsfmt.a dsfmt.cmxa libdsfmt.a 
