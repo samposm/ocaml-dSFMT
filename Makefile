@@ -1,4 +1,4 @@
-OCAMLPATH = /usr/lib/ocaml
+OCAMLPATH = `ocamlc -where`
 
 CC   = gcc
 COPT = -std=c99 -Wall -O3 -msse2 -finline-functions -fomit-frame-pointer \
@@ -28,7 +28,7 @@ dSFMT_c.o: $(dSFMTDIR)/dSFMT.c $(dSFMTDIR)/dSFMT.h \
 	$(CC) $(COPT) -c $< -o $@
 
 dsfmt-wrap.o: dsfmt-wrap.c $(dSFMTDIR)/dSFMT.h
-	$(CC) $(COPT) -I$(OCAMLPATH) -I$(dSFMTDIR) -c $<
+	$(CC) $(COPT) -I $(OCAMLPATH) -I$(dSFMTDIR) -c $<
 
 dsfmt.cmi dlldsfmt.so dsfmt.cmo dsfmt.cma libdsfmt.a dsfmt.o dsfmt.cmx \
 dsfmt.a dsfmt.cmxa: dsfmt.ml dsfmt-wrap.o dSFMT_c.o
