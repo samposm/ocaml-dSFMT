@@ -30,16 +30,17 @@ These can be used in various ways:
 Files needed: dsfmt.cmi dsfmt.cma dll_dsfmt.so
 
 Generate random numbers in the ocaml toplevel as:
+(here 123 is an int to seed the random number generator)
 
   $ ocaml dsfmt.cma 
-  # Dsfmt.init_int 1;;
+  # Dsfmt.init_int 123;;
   # Dsfmt.genrand ();;
 
 Or from a script:
 
   $ cat test.ml 
   #load "dsfmt.cma";;
-  Dsfmt.init_int 1;;
+  Dsfmt.init_int 123;;
   Printf.printf "%f\n" (Dsfmt.genrand ());;
   $ ocaml test.ml
 
