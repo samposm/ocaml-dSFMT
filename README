@@ -27,7 +27,7 @@ This will produce quite a few files (11 to be precise):
 These can be used in various ways:
 
 (1) Toplevel and scrips
-Files needed: dsfmt.cmi dsfmt.cma dll_dsfmt.so
+Files needed: dsfmt.cmi dsfmt.cma dlldsfmt.so
 
 Generate random numbers in the ocaml toplevel as:
 (here 123 is an int to seed the random number generator)
@@ -47,12 +47,12 @@ Or from a script:
 (2) Bytecode compilation
 
 (2a) dynamically linking with objects
-Files needed: dsfmt.cmi dsfmt.cmo dll_dsfmt.so
+Files needed: dsfmt.cmi dsfmt.cmo dlldsfmt.so
 
-  $ ocamlc dll_dsfmt.so dsfmt.cmo <mycode>.ml 
+  $ ocamlc dlldsfmt.so dsfmt.cmo <mycode>.ml 
 
 (2b) dynamically linking with library objects
-Files needed: dsfmt.cmi dsfmt.cma dll_dsfmt.so
+Files needed: dsfmt.cmi dsfmt.cma dlldsfmt.so
 
   $ ocamlc dsfmt.cma <mycode>.ml 
 
