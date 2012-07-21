@@ -22,7 +22,7 @@ This will produce quite a few files (11 to be precise):
 
 The above files can be used in various ways:
 
-Most importantly, Dsfmt.init_int will call the C-fucktion 
+Most importantly, Dsfmt.init_int <int-seed> will call the C-function 
 dsfmt_gv_init_gen_rand(uint32_t) to initialize the random number 
 generator, and Dsfmt.genrand will call the C-function 
 dsfmt_gv_genrand_close_open() fo return a random float from the interval [0,1).
