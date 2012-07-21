@@ -142,7 +142,7 @@ All these call a function 100000000 times to generate a random double.
 
 The first one (test_c1.c) is a straighforward way to call dSFMT from C, 
 and as the functions in dSFMT code are declared inline, everything will 
-be inlined and the code is fast. In the second (test_C2.c) one, there is 
+be inlined and the code is fast. In the second (test_c2.c) one, there is 
 an __attribute__ ((noinline)) to prevent inlining, making the comparison 
 to ocaml a bit more "fair". C is still 2x faster than ocaml.
 

@@ -4,8 +4,8 @@ external genrand_float: float -> float =
   "caml_dsfmt_gv_genrand_close_open_c" "dsfmt_gv_genrand_close_open_c" "float"
 
 (* We cannot make genrand_float of type unit -> float and still use the    *)
-(* "float" option to avoid boxing. Se we need to supply it with a dummy    *)
-(* float argument.                                                         *)
+(* "float" option to avoid boxing. So we need to supply it with a dummy    *)
+(* float argument, 0.0.                                                    *)
 
 let genrand () = genrand_float 0.0;;
 
