@@ -6,10 +6,6 @@ Just run
 
   $ make
 
-The makefile runs wget to fetch the dSFMT source distribution from the 
-above Japanese address, and gunzips and untars it into a subdirectory.
-Then it compiles the library bindings.
-
 This will produce quite a few files (11 to be precise):
 
   dSFMT_c.o     object file from the dSFMT C code
@@ -67,7 +63,7 @@ CAML_LD_LIBRARY_PATH and then run with just ./a.out.)
 (2c) statically linking with objects
 Files needed: dsfmt.cmi dsfmt.cmo libdsfmt.a
 
-  $ ocamlc -custom libdsfmt.a dsfmt.cmo <mycode>.ml 
+  $ ocamlc -custom libdsfmt.a dsfmt.cmo <mycode>.ml
 
 (2d) statically linking with library objects
 Files needed: dsfmt.cmi dsfmt.cma libdsfmt.a
@@ -138,7 +134,7 @@ real	0m15.301s
 user	0m15.221s
 sys	0m0.060s
 
-All these call a function 100000000 times to generate a random double.
+All these call a function 100 000 000 times to generate a random double.
 
 The first one (test_c1.c) is a straighforward way to call dSFMT from C, 
 and as the functions in dSFMT code are declared inline, everything will 
@@ -149,4 +145,4 @@ to ocaml a bit more "fair". C is still 2x faster than ocaml.
 The last one uses the ocaml standard libary random number generator 
 Random.float, instead is dSFMT.
 
-2011-12-26 Sampo Smolander, sampo.smolander@helsinki.fi
+2012-07-22 Sampo Smolander, sampo.smolander@helsinki.fi
