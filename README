@@ -20,7 +20,13 @@ This will produce quite a few files (11 to be precise):
   dsfmt.a       native code library object from dsfmt.ml
   dsfmt.cmxa    metadata for dsfmt.a
 
-These can be used in various ways:
+The above files can be used in various ways:
+
+Most importantly, Dsfmt.init_int will call the C-fucktion 
+dsfmt_gv_init_gen_rand(uint32_t) to initialize the random number 
+generator, and Dsfmt.genrand will call the C-function 
+dsfmt_gv_genrand_close_open() fo return a random float from the interval [0,1).
+
 
 (1) Toplevel and scrips
 Files needed: dsfmt.cmi dsfmt.cma dlldsfmt.so
