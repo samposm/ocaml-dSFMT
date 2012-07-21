@@ -1,11 +1,20 @@
 CC   = gcc
-COPT = -std=c99 -Wall -O3 -msse2 -finline-functions -fomit-frame-pointer \
-       -fno-strict-aliasing --param max-inline-insns-single=1800 \
-       -Wmissing-prototypes --param inline-unit-growth=500 \
-       --param large-function-growth=900 -DHAVE_SSE2 -DDSFMT_MEXP=19937 \
-       -march=native -DNDEBUG
 
-dSFMTDIR = ../dSFMT-src-2.1
+# from dSFMT-src-2.2/Makefile, with slight editing:
+WARN = -Wmissing-prototypes -W -Winline 
+OPTI = -O3 -finline-functions -fomit-frame-pointer -DNDEBUG \
+       -fno-strict-aliasing --param max-inline-insns-single=1800 
+STD  = -std=c99
+CCFLAGS = $(OPTI) $(WARN) $(STD)
+CCFLAGS += --param inline-unit-growth=500 --param large-function-growth=900
+SSE2FLAGS = -msse2 -DHAVE_SSE2
+
+# These I added:
+MFLAG = -DDSFMT_MEXP=19937
+ARCHFLAG = -march=native
+CCFLAGS += $(STD) $(SSE2FLAGS) $(MFLAG) $(ARCHFLAG)
+
+dSFMTDIR = ../dSFMT-src-2.2
 
 all: test_c1 test_c2 test_ocaml test_ocaml_random
 
@@ -13,10 +22,10 @@ all: test_c1 test_c2 test_ocaml test_ocaml_random
 	cd .. ; make
 
 test_c1: test_c1.c ../dSFMT_c.o
-	$(CC) $(COPT) -I$(dSFMTDIR) -o $@ $^
+	$(CC) $(CCFLAGS) -I$(dSFMTDIR) -o $@ $^
 
 test_c2: test_c2.c ../dSFMT_c.o
-	$(CC) $(COPT) -I$(dSFMTDIR) -o $@ $^
+	$(CC) $(CCFLAGS) -I$(dSFMTDIR) -o $@ $^
 
 ../libdsfmt.a:
 	cd .. ; make
