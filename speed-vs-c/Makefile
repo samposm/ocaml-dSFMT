@@ -1,9 +1,9 @@
 CC   = gcc
 
 # from dSFMT-src-2.2/Makefile, with slight editing:
-WARN = -Wmissing-prototypes -W -Winline 
+WARN = -Wmissing-prototypes -W -Winline
 OPTI = -O3 -finline-functions -fomit-frame-pointer -DNDEBUG \
-       -fno-strict-aliasing --param max-inline-insns-single=1800 
+       -fno-strict-aliasing --param max-inline-insns-single=1800
 STD  = -std=c99
 CCFLAGS = $(OPTI) $(WARN) $(STD)
 CCFLAGS += --param inline-unit-growth=500 --param large-function-growth=900
@@ -18,7 +18,7 @@ dSFMTDIR = ../dSFMT-src-2.2
 
 all: test_c1 test_c2 test_ocaml test_ocaml_random
 
-../dSFMT_c.o: 
+../dSFMT_c.o:
 	cd .. ; make
 
 test_c1: test_c1.c ../dSFMT_c.o
