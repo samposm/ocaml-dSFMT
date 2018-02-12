@@ -16,7 +16,7 @@ MFLAG = -DDSFMT_MEXP=19937
 ARCHFLAG = -march=native
 CCFLAGS += $(STD) $(SSE2FLAGS) $(MFLAG) $(ARCHFLAG) -fPIC
 
-dSFMTDIR = dSFMT-src-2.2
+dSFMTDIR = dSFMT-src-2.2.3
 
 all: dsfmt.cmi dsfmt.cmo dsfmt.cma dlldsfmt.so \
      dsfmt.o dsfmt.cmx dsfmt.a dsfmt.cmxa libdsfmt.a
